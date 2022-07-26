@@ -5,7 +5,7 @@ pipeline {
         stage("Build") {
             steps {
                 echo 'Building...'
-                bat """
+                sh """
                     mvn clean install -DskipTests=true
                 """
             }
@@ -13,7 +13,7 @@ pipeline {
         stage("Test") {
             steps {
                 echo 'Testing...'
-                bat """
+                sh """
                     mvn test -Dsurefire.useFile=false
                 """
             }
