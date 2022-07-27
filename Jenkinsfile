@@ -20,7 +20,7 @@ pipeline {
         }
         stage("SonarQube") {
             steps {
-                sh 'SonarQubeScanning...'
+                echo 'SonarQubeScanning...'
                 sh """
                     mvn clean verify sonar:sonar \
                       -Dsonar.projectKey=CredentionsFormatter \
