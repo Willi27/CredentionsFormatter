@@ -18,5 +18,16 @@ pipeline {
                 """
             }
         }
+        stage("SonarQube") {
+            steps {
+                sh 'SonarQubeScanning...'
+                sh """
+                    mvn clean verify sonar:sonar \
+                      -Dsonar.projectKey=CredentionsFormatter \
+                      -Dsonar.host.url=http://localhost:9000 \
+                      -Dsonar.login=sqp_3e7dd22f548886f53aa1813e35709fd7eb2fdee4
+                """
+           }
+       }
     }
 }
